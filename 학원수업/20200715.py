@@ -311,37 +311,3 @@ broCar = Car()
 print(f'내 차의 색상은 {myCar.color}이면, 현재 속도는 {myCar.speed}km입니다.') #빨강,0
 print(f'동생 차의 색상은 {broCar.color}이면, 현재 속도는 {broCar.speed}km입니다.') #빨강,0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
