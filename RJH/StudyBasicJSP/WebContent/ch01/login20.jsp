@@ -14,7 +14,7 @@
 		<input type ="text" name="id" placeholder="이름을 입력하세요" required>
 		<label for ="pass">비밀번호: </label>
 		<input type ="text" name="password" placeholder="비밀번호를 입력" required><br>
-	</fieldset>
+	</fieldset> 
 	<input type ="submit" value ="로그인">
 	<input type ="reset" value ="다시쓰기">
 	</form>

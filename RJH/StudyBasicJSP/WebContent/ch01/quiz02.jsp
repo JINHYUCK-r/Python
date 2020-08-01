@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>quiz02</title>
 </head>
 <body>
 	<h1>이지스퍼블리싱 신입 사원 모집 공고</h1>

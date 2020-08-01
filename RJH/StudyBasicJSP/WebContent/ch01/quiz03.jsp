@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>quiz03</title>
 </head>
 <body>
 	<p>커피 드립 순서 - 아리비아 숫자</p>
