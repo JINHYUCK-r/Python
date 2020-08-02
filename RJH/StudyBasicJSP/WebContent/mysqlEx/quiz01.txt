@@ -1,0 +1,29 @@
+학생테이블 만들기 student
+create table student(
+	stu_no char(9) primary key,
+	stu_name varchar(12),
+	stu_dept varchar(20),
+	stu_grade char(1),
+	stu_class char(1),
+	stu_gender char(1)
+	stu_height int,
+	stu_weight int);
+	
+	
+학생테이블에 데이터 입력	
+insert into student
+values (20153075,'옥한빛','기계','1','C','M',170,80);
+	    	학번 	      이름     	  학과	     학견   반      성별    키   몸무게
+
+insert into student	    	
+values (20153075,'옥한빛','기계','1','C','M',170,80);
+insert into student
+values (20153088,'이태연','기계','1','C','F',162,50);
+insert into student
+values (20143054,'유가인','기계','2','C','F',154,47);
+insert into student
+values (20152088,'조민우','전기전자','1','C','M',NULL,90);
+insert into student
+values (20151062,'김인중','컴퓨터정보','1','B','M',166,67);
+insert into student
+values (20131025,'옥성우','컴퓨터정보','3','A','F',172,63);	    	

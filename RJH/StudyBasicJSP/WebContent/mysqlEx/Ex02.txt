@@ -1,0 +1,123 @@
+데이터베이스 삭제
+DROP DATABASE 데이터베이스이름;
+DROP DATABASE study;
+-------------------------------------------
+테이블 삭제
+DROP TABLE 테이블이름;
+DROP TABLE test;
+---------------------------------------------
+테이블 안에 데이터만 삭제
+TRUNCATE TABLE 테이블이름;
+TRUNCATE TABLE test;
+
+==================
+
+테이블에 레코드 추가
+INSERT INTO 테이블이름 (필드이름1,필드이름2,...)
+VALUES (데이터값1, 데이터값2..);
+
+INSERT INTO test(ID, Name, ReserveDate, RoomNum) <--이렇게 쓰는게 안정적임
+VALUES(5,'홍길동','2016-02-16', 1108);		<-- 데이터의 값이 문자열이면 반드시 따옴표('')를 사용해야함
+
+INSERT INTO 테이블 이름			<--- 필드이름을 생략하면
+VALUES (테이터갑1, 데이터값2..); <--- 데이터베이스의 스키마와 같은 순서대로 필드의 값이 자동으로 대입
+
+INSERT INTO test
+VALUES(6,'고길동','2017-08-16'1128);
+
+=================================
+
+테이블의 모든 필드 선택
+SELECT * FROM 테이블이름;
+SELECT * FROM test; 	<--test테이블의 모든(*)필드를 선택한다
+-------------------------------------
+특정조건의 레코드 선택
+SELECT 필드이름  FROM 테이블이름 [WHERE 조건]
+SELECT * FROM test WHERE Name ='홍길동';
+
+select * from test
+where ID <= 3 and ReserveDate >'2016-02-01';
+-------------------------------------------
+특정필드만을 선택
+select Name, RoomNum from test;
+
+select Name, ReserveDate
+from test
+where ID<= 3 and ReserveDate >'2016-02-01';
+-------------------------------------------
+선택한 경과의 정렬
+select * from test
+order by ReserveDate;  <--test 테이블의 모든 레코드를 ReserveDate 필드의 오름차순으로 정렬. ASC가 생략되어 있는것
+
+select * from test
+order by ReserveDate DESC; <--내림차순 정력
+---------------------------------------------
+범위 조건
+select * from test
+where RoomNum between 1000 and 1120;
+--------------------------------------------
+Like를 이용한 검색
+select * from test
+where name like '홍%'; <-- 홍으로 시작하는 모든 이름
+
+%는 0개 이상의 문자 _는 1개의 문자
+select * from test
+where name like '_길%'; <-- 시작글자는 상관이 없고 그뒤에 글자로부터 '길'을 포함하는 이름을 검색
+						<-- 두번째 글자가 '길'인 모든 데이터 출력 
+--------------------------------------------------------
+count함수			<-- 데이터가 몇개인지 출력
+select count(*) from test;
+=====================================================
+
+레코드의  내용을 수정하기
+update 테이블이름
+set 필드이름1=데이터값1, 필드이름2=데이터값2...
+where 필드이름=데이터값;
+
+update test
+set RoomNum =2002
+where Name ='홍길동';
+
+update test
+set RoomNum =2002; <-- where 절을 생략하면 해당 테이블의 모든 레코드의 RoomNum 필드의 값이 2002로 변경됨
+
+=======================================================
+새로운 필드 추가
+ARTER table 테이블이름 add 필드이름 필드타입
+
+ARTER table test
+add Phone INT;	<-- test 테이블에 타입이 INT타입인 Phone필드를 추가
+---------------------------------------
+기존 필드의 삭제
+ALTER TABLE test
+DROP RoomNum;  <-- test테이블에서 RoomNum필드를 삭제
+--------------------------------------
+필드 타입 변경
+ALTER TABLE test
+MODIFY COLUMN ReserveDate VARCHAR(20);	<-- test 테이블의 ReserveDate필드 타입을 DATE에서 VARCHAR로 바꾼다.
+
+===================================================
+레코드를 삭제
+DELETE FROM 테이블 이름
+WHERE 필드이름 =데이터값;
+
+delete from test
+where Name ='홍길동';
+
+delete from 테이블이름;  <- 해당 테이블에 저장된 모든 데이터가 삭제
+delete from test;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+사원(emp)테이블을 생성
+사원번호 :empno int			<--primary key
+사원이름: ename varchar(10)
+직급 : job varchar(9)
+상급자 : mgr int
+입사날짜: hiredate date
+급여 : sal int
+커미션 : comm int
+부서번호 : deptno int
+
+create table emp (
+	empno int primary key,
+	ename varchar(10),
+	job varchar(9),
+	mgr int,
+	hiredate date,
+	sal int,
+	comm int,
+	deptno int);
+
+사원 테이블에 데이터를 입력
+insert into emp(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+value(1,'홍길동','sales',2,'2020-02-02',5000,100,3);
+
+insert into emp values(7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,10);
+insert into emp values(7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20);
+insert into emp values(7968,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30);
+insert into emp values(7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,10);
+insert into emp values(7788,'SCOTT','ANALYST',7566,'1987-07-13',3000,NULL,20);
+insert into emp values(7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20);
+insert into emp values(7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30);
+insert into emp values(7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30);
+insert into emp values(7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30);
+insert into emp values(7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30);
+insert into emp values(7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30);
+insert into emp values(7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10);
+insert into emp values(7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);
+insert into emp values(7876,'ADAMS','CLERK',7788,'1981-07-13',110,NULL,20);
+
+========================
+사원들의 사원번호 , 사원이름 , 사원직무를 검색
+select empno,ename,job from emp;
+
+사원들의 금여와 커미션을 검색
+select sal,comm from emp;
+
+===========================
+
+
+사원들의 입사일 중복을 제거하고 검색
+select distinct hiredate from dep;
+
+사원들의 상급자 사원번호 중복을 제거하고 검색하라
+select distinct mgr from emp;
+
+=========================
+
+사원들의 6개월 급여의 합을 구하여라
+select ename, sal*6 from emp;
+
+==========================
+10번부서에 근무하는 사원의 이름 검색
+select ename from emp
+where deptno=10;
+---------------------
+급여가 2000이상인 사원ㄷ르의 사원번호, 사원이름을 검색
+select empno, ename from emp
+where sal>2000;
+----------------------------
+사원직무가 clerk 인 사원들의 사원번호, 사원이름을 검색
+SELECT empno,ename FROM emp
+where job='CLERK';
+-------------------
+1980년 12월 17일에 입사한 사원이름을 검색
+select ename from emp
+where hiredate ='1980-12-17';
+
+================================
+
+ward 사원의 모든정보를 검색
+select * from emp
+where ename='WARD';
+
+------------
+10번부서에 근무하는 manager의 사원이름은 검색하라
+select ename from emp
+where deptno=10 and job='MANAGER';
+
+=====================================
+
+
+급여가 2000 이상이며, 30번 부서에 근무하는 사원들의 사원번화와 사원이름
+SELECT empno,ename FROM emp 
+WHERE sal>=2000 AND deptno=30;
+
+사원직무가 clerk이며 81년 이후에 입사한 사원들의 사원번호와 사원이름
+select empno,ename from emp
+where job='CLERK' and hiredate>'1981-01-01';
+
+20번부서 외에 근무하는 manager의 사원이름을 검색	<--  <>제외하는것(아닌)
+
+select mgr,ename from emp
+where deptno<> 20 and job ='MANAGER';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

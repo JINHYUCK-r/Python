@@ -41,7 +41,7 @@ CREATE TABLE 테이블이름
  필드이름 필드타입 PRIMARY KEY,
  ...
  );
- CREATE TABLE Test1
+ CREATE TABLE Test
  (
 	ID INT PRIMARY KEY, <-- ID필드는 NULL값을 가질수 없으며, 중복된 값을 가져서도 안된다.(주키는 테이블당 하나)
   	Name VARCHAR(30),
