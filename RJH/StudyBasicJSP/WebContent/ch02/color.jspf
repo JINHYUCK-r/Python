@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%-- 조각 코드 페이지를 다른 페이지에 포함되는 페이지인 경우에도, contentType과 pageEncoding를 사용해서 
+	한글을 포함한 페이지의 인코딩을 지정해야한다. --%>    
+
+<% // color.jspf의 내용 - 색상값변수정의
+	String bodyback_c = "#e0ffff";
+	String black_c = "#8fbc8f";
+	String title_c = "#5f9ea0";
+	String balue_c = "#b0e0e6";
+	String bar = "#778899";
+%>
+
+<%-- 조각코드를 가지는 페이지는 확장자를 jspf를 사용하는데 이것은 완전한 소스코드 페이지와 구별하기 위한것이다.
+	확장자를 꼭 jspf가 아니라 jsp를 써도 상관없다.
+	다만 팀 작업을 하는 것 이라면 모두가 조각코드라는 것을 알아볼수있도록 확장자를 사용할때 jsp보다는 jspf를 사용하는 것이 좋다는 것이다.
+--%>

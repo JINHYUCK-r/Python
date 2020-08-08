@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>표현식 예제 - 레퍼런스타입출력</title>
+</head>
+<body>
+	<h2>표현식 예제 - 레퍼런스타입출력</h2>
+	<%
+		StringBuffer sf = new StringBuffer("Reshiram");
+		sf.reverse();	//문자열을 역순으로 배치한다.
+		out.println("객체의 내용: "+sf.toString());
+	%>
+</body>
+</html>

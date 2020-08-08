@@ -1,0 +1,5 @@
+jsp페이지를 웹 브라우저에 표시할때 출력 형식을 text/html로 지정하시오
+문자의 인코딩은 utf-8로 지정하시오
+버퍼의 크기는 10k로 지정, autoFlush 속성을 true로 지정
+
+<%@ page  language="java" contentType="text/html; charset=utf-8" buffer="10kb" autoflush=true"%>
