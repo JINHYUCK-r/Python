@@ -1,0 +1,31 @@
+20200829
+
+액션 태그 : include 액션태그/ forward 액션태그
+
+페이지와 페이지 사이의 제어를 이동시킬수도있고 다른페이지의 실행결과를 현재의 페이지에 포함시킬수 있음
+자바빈도 jsp페이지에서 사용할수 있는 기능 제공
+ - 자바빈 : 넘겨받은 데이터를 DB에 저장할때 사용하는것. 자바의 클래스
+＊jsp 액션태그
+include : 다른 페이지의 실행결과를 현재의 페이지에 포함시킬때
+forward : 페이지 사이의 제어를 이동시킬때
+useBean : 자바빈을 jsp페이지에서 사용할때 사요
+setProperty : 프로퍼티의 값을 세팅할때 사용
+getProperty : 프로퍼티의 값을 얻어할때 사용
+ - 프로퍼티 : 자바안의 변수안의 값
+
+
+include 디렉티브는 주로 조각코드를 삽입할때 사용
+include 액션태그는 페이지를 모듈화 할때 사용
+
+include 액션태그 사용법
+<jsp:include page = "포함될페이지"flush="true"/>
+page속성 : 현재 페이지에 경과가 포함될 페이지
+
+
+jsp페이지의 모듈화
+jsp페이지의 중복영역 처리: 중복되는 페이지의 호출은 include 호출태그
+
+forwar액션태그 : 그전까지 출력버퍼에 저장되어 있던 내용을 제거하고, forward액션태그가 지정하는 페이지로 이동
+<jsp:forward page = "이동할페이지명"/>
+<jsp:forward page = "이동할페이지명"></jsp:forward>
+<jsp:forward page = "<%=expression +".jsp">">
