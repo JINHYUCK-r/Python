@@ -1,0 +1,21 @@
+20200830
+에러처리
+
+404번에러 : Page fault/ 경로가 틀렸을때
+500번에러 : Internal Server/ 코드에러
+
+에러 코드 처리법
+[web-inf]안에 web.xml에 <error-page> 태그를 기술
+<error-code>: 처리할 코드 기술
+<location> : 에러를 처리할 위치
+
+  <error-page>
+	<error-code>404</error-code>
+	<location>/error/404code.jsp</location>
+</error-page>
+
+<error-page>
+	<error-code>500</error-code>
+	<location>/error/500code.jsp</location>
+</error-page>
+
