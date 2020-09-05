@@ -1,0 +1,28 @@
+20200905
+자바빈 : jsp페이지의 로직부분을 분리해서 코드를 재사용함으로써 효율을 높이는것. 중복되는 모듈을 따로 작성해서 곤리
+자바빈에서는 멤버변수를 프로퍼티라고도 한다.
+
+자바빈 클래스의 선언은 접근 제어자를 public을 사용하고, 프로퍼티는 접근 제어자를 private를 사용해서 작성한다.
+public class TestBeam{
+	private String id;
+	}
+
+데이터 저장소의 역할을 하는 프로퍼티에 값을 저장할때는 setXX(), 저장된 값을 사용할때는 getXX()메서드를 사용
+XX는 프로퍼티 이름이며 첫글자는 대문자로 작성한다.
+하나의 프로퍼티에는 하나의 get과 하나의 set 메서드를 가짐
+public class TestBeam{
+	private String id;
+	
+	public void setId(String id){
+	 this.id = id;
+	}
+	
+	public void getId(String id){
+	 return id;
+	}
+	
+	}
+---------------------------
+
+useBean 액션태그는 jsp페이지에서 자바빈 객체를 생성한다	
+	
