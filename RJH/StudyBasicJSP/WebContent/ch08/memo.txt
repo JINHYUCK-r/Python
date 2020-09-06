@@ -1,0 +1,26 @@
+20200906
+
+jdbc용 테이블 만들기
+
+DB명 : basicjsp
+CREATE TABLE member(
+    id varchar(50) not null PRIMARY KEY,
+    passwd varchar(60) NOT null,
+    name varchar(10) NOT null,
+    reg_date datetime not null
+    );
+    
+-----------------
+
+usePool.jsp 용 테스트 테이블 만들기
+
+DB명: studybasicjsp
+
+CREATE TABLE member(
+    id varchar(50) not null PRIMARY KEY,
+    passwd varchar(60) NOT null,
+    name varchar(10) NOT null,
+    reg_date datetime not null
+    );
+    
+    
