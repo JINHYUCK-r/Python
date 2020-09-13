@@ -13,11 +13,14 @@ public class LogonDBBean {
 	
 	private static LogonDBBean instance = new LogonDBBean();
 	
-	private static  LogonDBBean getInstance() {
+	
+	
+	public static LogonDBBean getInstance() {
 		return instance;
 	}
-	
+
 	private LogonDBBean() { }
+	
 	
 	private Connection getConnection() throws Exception {
 		Context initCtx = new InitialContext();
@@ -30,16 +33,15 @@ public class LogonDBBean {
 	public void insertMember(LogonDataBean member) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(
-						"inset into MEMBER values (?,?,?,?)"
-					);
+						"insert into member values (?,?,?,?)");
 			pstmt.setNString(1, member.getId());
 			pstmt.setNString(2, member.getPasswd());
 			pstmt.setNString(3, member.getName());
 			pstmt.setTimestamp(4, member.getReg_date());
+			pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -50,42 +52,42 @@ public class LogonDBBean {
 		}
 	}
 	
-	public int userCheck (String id, String passwd) throws Exception{
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String dbpasswd = "";
-		int x = -1;
-		
-		try {
-			
-			conn = getConnection();
-			
-			pstmt = conn.prepareStatement("select passwd from MEMBER where id = ?");
-			pstmt.setNString(1, id);
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				dbpasswd = rs.getNString("passwd");
-				if(dbpasswd.equals(passwd))
-					x = 1;
-				else
-					x = 0;
-			} else
-				x = -1;
-			
-			
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}finally {
-			if (rs != null)
-				try {rs.close();} catch(SQLException ex) {}
-			if (pstmt != null)
-				try {pstmt.close();} catch(SQLException ex) {}
-			if (conn != null)
-				try {conn.close();} catch(SQLException ex) {}
-		}
-		return x;
+	public int userCheck(String id, String passwd) 
+			throws Exception {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String dbpasswd = "";
+	int x = -1;
+	
+	try{
+		conn = getConnection();
+		            
+		pstmt = conn.prepareStatement(
+		    "select passwd from MEMBER where id = ?");
+		pstmt.setString(1, id);
+		rs= pstmt.executeQuery();
+
+		if(rs.next()){
+			dbpasswd= rs.getString("passwd"); 
+			if(dbpasswd.equals(passwd))
+				x = 1; //인증 성공
+			else
+				x = 0; //비밀번호 틀림
+		}else
+			x = -1;//해당 아이디 없음
+					
+	}catch(Exception ex) {
+		ex.printStackTrace();
+	}finally{
+		if (rs != null) 
+			try { rs.close(); } catch(SQLException ex) {}
+		if (pstmt != null) 
+			try { pstmt.close(); } catch(SQLException ex) {}
+		if (conn != null) 
+			try { conn.close(); } catch(SQLException ex) {}
+	}
+	return x;
 	}
 
 }
