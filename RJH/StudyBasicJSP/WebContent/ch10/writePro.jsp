@@ -15,5 +15,5 @@
 	BoardDBBean dbPro = BoardDBBean.getInstance();
 	dbPro.insertArticle(article);
 	
-	//response.sendRedirect("list.jsp"); //list.jsp페이지로 이동
+	response.sendRedirect("list.jsp"); //list.jsp페이지로 이동
 %>
